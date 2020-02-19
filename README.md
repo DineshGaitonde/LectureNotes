@@ -1,4 +1,4 @@
-# LectureNotes
+# Lecture Notes
 Lecture Notes for various things
 
 ## Statistical Mechanics
