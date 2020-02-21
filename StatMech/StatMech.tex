@@ -1,0 +1,167 @@
+\documentclass[12pt]{article}
+% We can write notes using the percent symbol!
+% The first line above is to announce we are beginning a document, an article in 
+% this case, and we want the default font size to be 12pt
+\usepackage[utf8]{inputenc}
+% This is a package to accept utf8 input.  I normally do not use it in my 
+% documents, but it was here by default in Overleaf.
+\usepackage{pgfplots}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+% These three packages are from the American Mathematical Society and includes 
+% all of the important symbols and operations 
+\usepackage{fullpage}
+% By default, an article has some vary large margins to fit the smaller page 
+% format.  This allows us to use more standard margins.
+
+\setlength{\parskip}{1em}
+% This gives us a full line break when we write a new paragraph
+
+\begin{document}
+% Once we have all of our packages and setting announced, we need to begin our 
+% document.  You will notice that at the end of the writing there is an end 
+% document statements.  Many options use this begin and end syntax.
+
+\begin{center}
+    \Large Statistical Mechanics \\
+    Instructor - Prof. V. Balakrishnan
+\end{center}
+
+\section{Lecture 22 - Microcanonical Ensemble}
+
+\subsection{Energy Momentum Relationship}
+Consider a free particle with energy $E$. The non-relativistic energy momentum
+relationship for such a particle is given by
+$\begin{aligned}
+    E & = \frac{p^2}{2m} \\
+\end{aligned}$
+
+One derives this relationship by considering the canonical relativistic 
+relationship
+\begin{equation} \label{eqn:emc2}
+\begin{split}
+E^2 & = m^2c^4 + p^2c^2 \\
+& = m^2c^4\l( 1 + \frac{p^2}{m^2c^2} \r) \\
+E & = mc^2\sqrt{\l( 1 + \frac{p^2}{m^2c^2}\r)}
+\end{split}
+\end{equation}
+
+We consider particles where the term $\frac{p^2}{2m}$ is very small. If we 
+expand RHS in equation~\ref{eqn:emc2} and only consider the linear term, we get 
+the relationship
+
+$\begin{aligned}
+    E & = mc^2 + \frac{p^2}{2m}. \\
+\end{aligned}$
+
+Since the term $mc^2$ is simply the rest energy of the particle and does not 
+change, we use the relationship $E = \frac{p^2}{2m}$
+
+\subsection{Number of States For One Particle}
+We are given that the energy of a single free particle is less than or equal to 
+$\epsilon$. We want to compute $\phi (\epsilon)$ - the number of microstates the
+particle could be in given that it is in some volume $V$ and within the energy 
+constraint. The phase space for the particle are all (r, p) (position and 
+momentum vectors) that are consistent with the constraints. That is, 
+
+$\begin{aligned}
+Phase\ Space\ Volume & = \int_{V}d^3r\int_{0}^{\sqrt{2m\epsilon}}d^3p \\
+ \end{aligned}$
+
+Since we cannot ask for momentum and position to accuracy less than order of 
+$\hbar$, the number of states in this phase space volume - $\phi(\epsilon)$ is
+given by
+
+\begin{equation}\label{eqn:phi}
+\begin{split}
+\phi \l( \epsilon \r) & \propto \frac{V}{\hbar} \epsilon^\frac{3}{2}.
+\end{split}
+\end{equation}
+
+It is instructive to understand the nature of the relationship in 
+equation~\ref{eqn:phi}. The number of states a particle with energy no more than
+$\epsilon$ can be in increases by $\frac{3}{2}$ power. The numerator $3$ comes 
+from the fact that we are operating in $3$ dimensions. The denominator $2$ comes
+from the fact that energy momentum relationship is quadratic.
+
+The number of microstates in an energy shell of $d\epsilon$ can be expressed as
+\begin{equation*}
+\begin{split}
+\phi \l( \epsilon + d\epsilon \r) -\phi\l(\epsilon\r) & = 
+\frac{\partial \phi}{\partial \epsilon}d\epsilon
+\end{split}
+\end{equation*}
+
+If we define $\frac{\partial \phi}{\partial \epsilon}$ as density of states
+$\rho(\epsilon)$, then the number of states in a $d\epsilon$ shell is given by
+
+$\begin{aligned}
+\phi \l( \epsilon + d\epsilon \r) - \phi\l(\epsilon\r) & = 
+\rho \l( \epsilon \r)d\epsilon \\
+ \end{aligned}$
+
+From equation~\ref{eqn:phi}, we can see that
+\begin{equation}
+\begin{split}
+\rho \l( \epsilon \r) & \propto \frac{V}{\hbar}\epsilon^\frac{1}{2}
+\end{split}
+\end{equation}
+
+Note that this dependence of $\rho$ on energy is true only in 3D. In 2D, $\rho$
+is a constant. This is especially important for Quantum Hall effect where 
+electrons are confined to a plane using an intense magnetic field. 
+
+For bound quantum states, the energy spectrum is discrete. So one has to be
+careful in defining $\rho$ as the partial derivative is not defined. But as
+energies increase, the ladder spectrum begins to approximate the continuum. Hence
+at large energies (large quantum numbers), $\rho$ makes sense.
+
+
+\subsection{Number of States For Collection of Particles}
+
+Consider a system of {\em free, non interacting} $N_{tot}$ particles enclosed in
+some volume. The total energy of all the particles is $E_{tot}$. The number of 
+microstates this collection could be in is represented as $\Omega\l( E_{tot}\r)$.
+Consider now a partition of the original system into two partitions $A$ and $B$.
+The energy of partition $A$ ($E$) and partition $B$ ($E^\prime$). $E + E^\prime$
+equals $E_{tot}$ as we assume there is no interaction between the particles. 
+Similarly, the number of particles in A (B) are $N$ ($N^\prime$) such that
+$N + N^\prime$ equals $N_{tot}$.
+
+\begin{equation*}
+\begin{split}
+E & = \sum_{i=1}{N}\epsilon_i \\
+\end{split}
+\end{equation*}
+
+Assuming all the particles are independent, the total number of states of partition
+$A$ is simply the product of the microstates of each particle
+\begin{equation*}
+\begin{split}
+\Omega\l ( E \r) & = \prod_{i=1}^{N}\rho \l( \epsilon_i \r) \\
+& \propto \prod_{i=1}^{N} \epsilon_i^\frac{1}{2}
+\end{split}
+\end{equation*} 
+
+Assuming that the most likely situation is that each particle is close to the 
+average energy, we get
+\begin{equation*}
+\begin{split}
+\Omega\l ( E \r) & = \prod_{i=1}^{N}\left(\frac{E}{N}\right)^\frac{1}{2} \\
+& \propto \left(\frac{E}{N}\right)^\frac{N}{2} \\
+& \propto E^{N/2 -log_E{N}}
+\end{split}
+\end{equation*}
+
+In terms of order of magnitudes (assuming $N$ is very large), we get the very 
+important relationship ($\alpha$ is some constant) that the number of states
+grows exponentionally with $N$
+\begin{equation}
+\begin{split}
+\Omega\l ( E \r) & \propto E^{\alpha N} \\
+\end{split}
+\end{equation}
+
+
+\end{document}
